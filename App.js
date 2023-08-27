@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import LittleLemonHeader from './components/LittleLemonHeader';
-import LittleLemonFooter from './components/LittleLemonFooter';
-// import WelcomeScreen from './components/WelcomeScreen';
+import LittleLemonHeader from './src/components/LittleLemonHeader';
+import LittleLemonFooter from './src/components/LittleLemonFooter';
+import WelcomeScreen from './src/components/WelcomeScreen';
 // import FeedbackComponent from './components/FeedbackComponent';
-import LoginScreen from './components/LoginScreen';
+import LoginScreen from './src/components/LoginScreen';
 // import MenuItems from './components/MenuItems';
 
 export default function App() {
@@ -13,10 +13,10 @@ export default function App() {
     <>
       <View style={styles.headerContainer}>
         <LittleLemonHeader />
-        <LoginScreen />
+        {/* <LoginScreen /> */}
         {/* <FeedbackComponent /> */}
         {/* <MenuItems /> */}
-        {/* <WelcomeScreen /> */}
+        <WelcomeScreen />
       </View>
       <View style={styles.footerContainer}>
         <LittleLemonFooter />
@@ -28,11 +28,11 @@ export default function App() {
 const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
-    backgroundColor: '#333333',
+    backgroundColor: 'white',
   },
   mainContainer: {
     flex: 0.5,
-    backgroundColor: '#333333',
+    backgroundColor: '#EDEFEE',
   },
   footerContainer: {
     backgroundColor: '#333333',
