@@ -1,29 +1,47 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, TextInput, StyleSheet, Alert } from 'react-native';
+import { ScrollView, Text, TextInput, StyleSheet, Pressable } from 'react-native';
 
 export default function LoginScreen() {
   const [email, onChangeEmail] = useState('');
   const [password, onChangePassword] = useState('');
+  const [loggedIn, onLogin] = useState(false);
 
   return (
     <ScrollView style={styles.container} keyboardDismissMode='on-drag'>
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-      <Text style={styles.regularText}>Login to continue</Text>
-      <TextInput
-        value={email}
-        onChangeText={onChangeEmail}
-        style={styles.input}
-        placeholder={'Email'}
-        keyboardType={'email-address'}
-        clearButtonMode={'always'}
-      />
-      <TextInput
-        value={password}
-        onChangeText={onChangePassword}
-        style={styles.input}
-        placeholder={'Password'}
-        secureTextEntry={true}
-      />
+      {loggedIn && (
+        <Text style={styles.headerText}>You are logged in!</Text>
+      )}
+      {!loggedIn && (
+        <>
+        <Text style={styles.regularText}>Login to continue</Text>
+        <TextInput
+          value={email}
+          onChangeText={onChangeEmail}
+          style={styles.input}
+          placeholder={'Email'}
+          keyboardType={'email-address'}
+          clearButtonMode={'always'}
+        />
+        <TextInput
+          value={password}
+          onChangeText={onChangePassword}
+          style={styles.input}
+          placeholder={'Password'}
+          secureTextEntry={true}
+        />
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            onLogin(!loggedIn);
+          }}
+        >
+          <Text style={styles.buttonText}>
+            Log in
+          </Text>
+        </Pressable>
+        </>
+      )}
     </ScrollView>
   );
 }
@@ -53,5 +71,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderColor: '#EDEFEE',
     backgroundColor: 'white',
+  },
+  button: {
+    fontSize: 22,
+    padding: 10,
+    marginVertical: 8,
+    margin: 100,
+    backgroundColor: '#EE9972',
+    borderColor: '#EE9972',
+    borderWidth: 2,
+    width: 150,
+    borderRadius: 50,
+  },
+  buttonText: {
+    color: 'black',
+    fontSize: 25,
+    textAlign: 'center',
   },
 });
