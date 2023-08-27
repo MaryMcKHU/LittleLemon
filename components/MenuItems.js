@@ -53,8 +53,6 @@ const Item = ({ name, price }) => (
   </View>
 );
 
-const Header = () => <Text style={menuStyles.headerText}>View Menu</Text>
-
 const Footer = () => <Text style={menuStyles.footerText}>All rights reserved by Little Lemon</Text>
 
 const MenuItems = () => {
