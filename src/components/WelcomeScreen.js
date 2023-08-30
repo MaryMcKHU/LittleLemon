@@ -41,9 +41,9 @@ export default function WelcomeScreen({ navigation }) {
         food and classic cocktails in a lively but casual environment. We
         would love to hear your experience with us!
       </Text>
-      <Pressable onPress={() => navigation.navigate('Menu')}>
+      {/* <Pressable onPress={() => navigation.navigate('Menu')}>
         <Text style={welcomeStyles.buttonText}>View Menu</Text>
-      </Pressable>
+      </Pressable> */}
       {/* <Text>Window Dimensions</Text>
       <Text>Height: {window.height}</Text>
       <Text>Width: {window.width}</Text>

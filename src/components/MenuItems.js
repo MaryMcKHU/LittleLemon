@@ -57,7 +57,7 @@ const Item = ({ name, price }) => (
 const Footer = () => <Text style={menuStyles.footerText}>All rights reserved by Little Lemon</Text>
 
 const MenuItems = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
   const renderItem = ({ item }) => <Item name={item.name} price={item.price} />;
 
   const renderSectionHeader = ({ section: { title } }) => (
@@ -66,7 +66,7 @@ const MenuItems = () => {
 
   return (
     <View style={menuStyles.container}>
-      {!showMenu && (
+      {/* {!showMenu && (
         <Text style={menuStyles.infoSection}>
           Little Lemon is a charming neighborhood bistro that serve simple food
           and classic cocktails in a lively but casual environment. View our menu
@@ -83,16 +83,17 @@ const MenuItems = () => {
           {showMenu ? 'Home' : 'View Menu'}
         </Text>
       </Pressable>
-      {showMenu && (
-        <SectionList
-          keyExtractor={(item, index) => item + index}
-          sections={menuItemsToDisplay}
-          renderItem={renderItem}
-          renderSectionHeader={renderSectionHeader}
-          ListFooterComponent={Footer}
-          ItemSeparatorComponent={Separator}
-        />
-      )}
+      {showMenu && ( */}
+      <SectionList
+        style={menuStyles.list}
+        keyExtractor={(item, index) => item + index}
+        sections={menuItemsToDisplay}
+        renderItem={renderItem}
+        renderSectionHeader={renderSectionHeader}
+        ListFooterComponent={Footer}
+        ItemSeparatorComponent={Separator}
+      />
+      {/* )} */}
     </View>
   )
 }
@@ -108,7 +109,7 @@ const menuStyles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   sectionHeader: {
-    backgroundColor: '#F4CE14',
+    backgroundColor: 'pink',
     color: 'black',
     fontSize: 26,
     flexWrap: 'wrap',
@@ -122,16 +123,10 @@ const menuStyles = StyleSheet.create({
   },
   separator: {
     borderBottomWidth: 1,
-    borderBottomColor: '#EDEFEE',
+    borderBottomColor: 'pink',
   },
   itemText: {
-    color: '#F4CE14',
-    fontSize: 20,
-  },
-  footerText: {
-    color: '#EDEFEE',
-    flexWrap: 'wrap',
-    textAlign: 'center',
+    color: 'gray',
     fontSize: 20,
   },
   button: {

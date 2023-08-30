@@ -19,16 +19,16 @@ const headerStyles = StyleSheet.create({
     backgroundColor: '#EE9972',
   },
   headerText: {
-    padding: 40,
+    padding: 10,
     fontSize: 30,
     color: 'black',
     textAlign: 'center',
   },
   logo: {
-    height: 100,
-    width: 300,
+    height: 75,
+    width: 200,
     resizeMode: 'contain',
     marginTop: 30,
-    marginHorizontal: 40,
+    marginHorizontal: 90,
   },
 });

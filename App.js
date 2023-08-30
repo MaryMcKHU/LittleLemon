@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { View, StyleSheet } from 'react-native';
 
-// import LittleLemonHeader from './src/components/LittleLemonHeader';
+import LittleLemonHeader from './src/components/LittleLemonHeader';
 import LittleLemonFooter from './src/components/LittleLemonFooter';
 import WelcomeScreen from './src/components/WelcomeScreen';
 // import FeedbackComponent from './components/FeedbackComponent';
@@ -11,14 +11,38 @@ import LoginScreen from './src/components/LoginScreen';
 import MenuItems from './src/components/MenuItems';
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+  const Drawer = createDrawerNavigator();
 
   return (
     <>
+    <LittleLemonHeader />
     <NavigationContainer>
-      <View style={styles.container}>
-        {/* <LittleLemonHeader /> */}
-        <Stack.Navigator
+      <Drawer.Navigator
+        useLegacyImplementation
+        screenOptions={{
+          drawerPosition: 'left',
+          drawerStyle: {
+            backgroundColor: 'rgba(210, 135, 95, 0.5)',
+            width: 200,
+          }
+        }}
+      >
+        <Drawer.Screen
+          name='Login'
+          component={LoginScreen}
+        />
+        <Drawer.Screen
+          name='Welcome'
+          component={WelcomeScreen}
+        />
+        <Drawer.Screen
+          name='Menu'
+          component={MenuItems}
+        />
+      </Drawer.Navigator>
+      {/* <View style={styles.container}> */}
+        {/*  */}
+        {/* <Stack.Navigator
           initialRouteName='Login'
           screenOptions={{
             headerStyle: { backgroundColor: '#333333' },
@@ -42,8 +66,8 @@ export default function App() {
             name='Menu'
             component={MenuItems}
           />
-        </Stack.Navigator>
-      </View>
+        </Stack.Navigator> */}
+      {/* </View> */}
       <View style={styles.footerContainer}>
         <LittleLemonFooter />
       </View>
