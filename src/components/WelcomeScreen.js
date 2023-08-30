@@ -6,12 +6,13 @@ import {
   Image,
   View,
   useColorScheme,
+  Pressable,
   // useWindowDimensions
 } from 'react-native';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   const colorScheme = useColorScheme();
-  // const window = useWindowDimensions();
+
   return (
     <ScrollView style={[
       welcomeStyles.container,
@@ -40,6 +41,9 @@ export default function WelcomeScreen() {
         food and classic cocktails in a lively but casual environment. We
         would love to hear your experience with us!
       </Text>
+      <Pressable onPress={() => navigation.navigate('Menu')}>
+        <Text style={welcomeStyles.buttonText}>View Menu</Text>
+      </Pressable>
       {/* <Text>Window Dimensions</Text>
       <Text>Height: {window.height}</Text>
       <Text>Width: {window.width}</Text>
@@ -105,5 +109,8 @@ const welcomeStyles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 20,
-  }
+  },
+  buttonText: {
+    color: 'blue',
+  },
 });
